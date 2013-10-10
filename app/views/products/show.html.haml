@@ -1,0 +1,77 @@
+-content_for :title, "#{@product.name} - #{SHOP_NAME}"
+
+#notice
+  =notice
+
+#content{itemscope:'', itemtype:"http://schema.org/Product"}
+  <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+  <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj,gplus"></div>
+  %h1{itemprop:"name"}
+    =@product.name
+  #product-info
+    -if @product.images.count >5
+      .row
+        .col-md-2.col-md-offset4.col-sm-2.col-sm-offset4.prev.icon-angle-up
+    .row
+      .col-sm-5.main-img
+        =link_to(image_tag(@product.images.first.image.url(:main), {itemprop:"image", title:@product.name, alt:@product.name}), @product.images.first.image.url, rel: 'group1', :data => { :colorbox => true, :colorbox_photo =>true, :colorbox_static => true  }) if @product.images.first
+      -if @product.images.count >1
+        .col-sm-2.col-md-2.images_thumbs
+          %ul
+            -@product.images[1..-1].each do |img|
+              %li
+                .image_thumb
+                  =link_to(image_tag(img.image.url(:thumb), itemprop:"image", title:@product.name, alt:@product.name), img.image.url, rel: 'group1', :data => { :colorbox => true, :colorbox_photo =>true, :colorbox_static => true  })
+        :javascript
+          $(document).ready(function($) {
+            $(".images_thumbs").jCarouselLite({
+              btnNext: ".next",
+              btnPrev: ".prev",
+              vertical: true,
+              visible: 4
+            });
+          });
+      .col-sm-5.col-md-5.dl-horizontal
+        =if @product.manufacturer
+          .vendor
+            %dt Производитель
+            %dd= @product.manufacturer.name
+        .sku
+          %dt Модель
+          %dd= @product.sku
+        .availability
+          %dt Наличие
+          %dd= @product.availability
+        =form_for Cart.new, :url =>  "/cart/add" do |f|
+          -@product.options.all.each do |option|
+            %dt= option.name
+            %dd
+              -option.option_items.all(order:'delta').each do |item|
+                .control-group
+                  .controls
+                    %label.control-label
+                      %input(type="radio" value="#{item.value}" name="#{option.name}" id="#{option.name}_#{item.value}" )
+                      #{item.label}
+
+          .price{itemprop:"offers", itemscope:'', itemtype:"http://schema.org/Offer"}
+            =hidden_field_tag 'quantity', '1'
+            =hidden_field_tag 'product_id', @product.id
+            %dt Цена
+            %dd
+              ="#{@product.price} руб."
+              %button.btn.btn-sm.btn-primary{type:"submit"}
+                %span.glyphicon.glyphicon-shopping-cart
+                Купить
+    -if @product.images.count >5
+      .row
+        .col-sm-2.col-sm-offset4.col-md-2.col-md-offset4.next.icon-angle-down
+    .description{itemprop:"description"}
+      =raw @product.description
+
+    #vk_comments
+    :javascript
+      $(document).ready(function($) {
+        VK.init({apiId: 3702025, onlyWidgets: true});
+        VK.Widgets.Comments("vk_comments", {limit: 10, width: "870", attach: "*"});
+      })
+= link_to 'Edit', edit_product_path(@product), class:"btn"

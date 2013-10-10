@@ -1,0 +1,3 @@
+- Category.where({parent_id: nil}).each do |cat|
+	%li
+		= render 'categories/tree_item', :tree_item => cat

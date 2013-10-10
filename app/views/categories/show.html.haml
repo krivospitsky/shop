@@ -1,0 +1,20 @@
+-content_for :title, "#{@category.name} - CarGadget.ru"
+%h1= @category.name
+.row
+	%img.col-md-3{src:@category.image.url(:medium)}
+	.col-md-9= @category.description
+
+
+-if @category.products.empty?
+	.row
+		- @category.children.each do |child|
+			=  child.name
+-else
+	.row
+		- @category.products.where(hidden:false).each do |product|
+			=  render "/products/show_item", :product=>product
+
+.row
+	-if session[:is_admin?]
+		.btn= link_to "Добавить товар", new_product_path({category_id:@category.id})
+		.btn= link_to "редактировать категорию", edit_category_path(@category.id)

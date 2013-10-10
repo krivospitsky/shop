@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: shop_development
+  pool: 5
+  username: postgres
+  password: Zz!234567
+  host: localhost
+

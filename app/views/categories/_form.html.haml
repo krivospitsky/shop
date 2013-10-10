@@ -1,0 +1,40 @@
+= form_for(@category, html: { :class => 'form-horizontal', multipart: true}) do |f|
+  - if @category.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@category.errors.count, "error")
+        prohibited this category from being saved:
+      %ul
+        - @category.errors.full_messages.each do |msg|
+          %li= msg
+  .control-group
+    .controls
+      = image_tag @category.image.url(:medium)
+      %br
+      = f.file_field :image
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description
+  .control-group
+    = f.label :hidden, :class => 'control-label'
+    .controls
+      = f.check_box :hidden
+  .control-group
+    = f.label :sort, :class => 'control-label'
+    .controls
+      = f.number_field :sort
+  .control-group
+    = f.label :seo_name, :class => 'control-label'
+    .controls
+      = f.text_field :seo_name
+  .control-group
+    = f.label :parent_id, :class => 'control-label'
+    .controls
+      = f.collection_select :parent_id, Category.order(:id),:id,:name, include_blank: true
+  .actions
+    = f.submit

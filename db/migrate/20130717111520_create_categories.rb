@@ -1,0 +1,13 @@
+class CreateCategories < ActiveRecord::Migration
+  def change
+    create_table :categories do |t|
+      t.string :name
+      t.text :description
+      t.boolean :hidden
+      t.integer :sort
+      t.text :seo_name
+
+      t.timestamps
+    end
+  end
+end

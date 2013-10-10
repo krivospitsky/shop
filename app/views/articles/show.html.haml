@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%h1= @article.title
+
+.row
+	%div= raw @article.text
+
+.row
+	-if session[:is_admin?]
+		.btn= link_to "редактировать статью", edit_article_path(@article)
+
