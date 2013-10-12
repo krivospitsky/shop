@@ -17,3 +17,4 @@
 //= require colorbox-rails
 //= require jcarousellite_1.0.1.pack
 //= require ckeditor/init
+

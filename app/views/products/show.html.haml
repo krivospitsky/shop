@@ -4,8 +4,6 @@
   =notice
 
 #content{itemscope:'', itemtype:"http://schema.org/Product"}
-  <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-  <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj,gplus"></div>
   %h1{itemprop:"name"}
     =@product.name
   #product-info
@@ -67,6 +65,9 @@
         .col-sm-2.col-sm-offset4.col-md-2.col-md-offset4.next.icon-angle-down
     .description{itemprop:"description"}
       =raw @product.description
+
+    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+    <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj,gplus"></div>
 
     #vk_comments
     :javascript
