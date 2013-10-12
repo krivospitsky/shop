@@ -1,10 +1,10 @@
 # coding: utf-8
 namespace :ulmart do
 	task :update => :environment do
-		urls = {"http://www.ulmart.ru/catalog/DVR"=>'8',
-				"http://www.ulmart.ru/catalog/radar_detector"=>'9',
-				"http://www.ulmart.ru/catalog/gps_radio"=>'10',
-				"http://www.ulmart.ru/catalog/92049"=>'11'}
+		urls = {"http://www.ulmart.ru/catalog/DVR"=>'1',
+				"http://www.ulmart.ru/catalog/radar_detector"=>'3',
+				"http://www.ulmart.ru/catalog/gps_radio"=>'2',
+				"http://www.ulmart.ru/catalog/92049"=>'4'}
 		urls.each_key do |url|
 			page=1
 			while true
