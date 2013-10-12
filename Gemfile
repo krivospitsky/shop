@@ -48,7 +48,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'activerecord-postgres-hstore'
 gem "paperclip", "~> 3.0"
-gem 'haml-rails'
+gem 'haml-rails', :github => 'indirect/haml-rails'
 
 group :development do
   gem "erb2haml"

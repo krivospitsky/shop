@@ -6,6 +6,16 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: git://github.com/indirect/haml-rails.git
+  revision: 071306248a759dff10e652b7d8e492384fb56f5c
+  specs:
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -69,11 +79,6 @@ GEM
     execjs (2.0.2)
     haml (4.0.3)
       tilt
-    haml-rails (0.4)
-      actionpack (>= 3.1, < 4.1)
-      activesupport (>= 3.1, < 4.1)
-      haml (>= 3.1, < 4.1)
-      railties (>= 3.1, < 4.1)
     highline (1.6.19)
     hike (1.2.3)
     hpricot (0.8.6)
@@ -189,7 +194,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   colorbox-rails
   erb2haml
-  haml-rails
+  haml-rails!
   jbuilder (~> 1.2)
   jquery-rails
   nokogiri
