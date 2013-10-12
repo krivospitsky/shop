@@ -26,4 +26,9 @@ Shop::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  SHOP_NAME='CarGadget.ru'
+  ADMIN_NAME = 'admin'
+  ADMIN_PASSWORD = '201185'
+
 end

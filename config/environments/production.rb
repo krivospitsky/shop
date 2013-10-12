@@ -77,4 +77,8 @@ Shop::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  SHOP_NAME='CarGadget.ru'
+  ADMIN_NAME = 'admin'
+  ADMIN_PASSWORD = '201185'
 end
