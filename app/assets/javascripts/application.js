@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
-//= require colorbox-rails
+//= require jquery.colorbox
 //= require jcarousellite_1.0.1.pack
 //= require ckeditor/init
+//= require_tree .
 
