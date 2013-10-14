@@ -8,6 +8,8 @@ Shop::Application.routes.draw do
 
   resources :categories
   resources :products
+
+  resources :cart_items
   get 'login' => 'auth#index'
   post '/cart/add' => 'cart#add'
   get '/cart' => 'cart#index'

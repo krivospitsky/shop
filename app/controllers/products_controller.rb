@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @title=@product.name
+    @cart_item = @cart.cart_items.new(product_id: @product.id, quantity:1)
   end
 
 

@@ -40,8 +40,8 @@
         .availability
           %dt Наличие
           %dd= @product.availability
-        -form_for Cart.new, :url =>  "/cart/add" do |f|
-          -@product.options.all.each do |option|
+        = form_for @cart_item do |f|
+          -#@product.options.all.each do |option|
             %dt= option.name
             %dd
               -option.option_items.all(order:'delta').each do |item|
@@ -52,12 +52,12 @@
                       #{item.label}
 
           .price{itemprop:"offers", itemscope:'', itemtype:"http://schema.org/Offer"}
-            =hidden_field_tag 'quantity', '1'
-            =hidden_field_tag 'product_id', @product.id
+            = f.hidden_field :product_id
+            = f.hidden_field :quantity
             %dt Цена
             %dd
-              \#{@product.price} руб.
-              %button.btn.btn-sm.btn-primary{type:"submit"}
+              ="#{@product.price} руб."
+              %button.btn.btn-sm.btn-primary{type:'submit'}
                 %span.glyphicon.glyphicon-shopping-cart
                 Купить
     -if @product.images.count >5
