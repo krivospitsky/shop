@@ -1,8 +1,12 @@
 class CartItemsController < ApplicationController
   def create
-    @cart_item = @cart.cart_items.new(cart_item_params)
-    if @cart_item.save
-      redirect_to  @cart
+    if item=@cart.cart_items.find(product_id:params.product_id)
+      item.quantity+=params.quantity
+    else
+      @cart_item = @cart.cart_items.new(cart_item_params)
+      if @cart_item.save
+        redirect_to  @cart
+      end
     end
   end
   private
