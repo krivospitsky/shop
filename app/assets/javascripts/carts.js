@@ -3,7 +3,7 @@
 //= require jquery.inputmask-multi.js
 
 $(document).ready(function($) {
-	var listRU = $.masksSort($.masksLoad("/assets/phones-ru.json"), ['#'], /[0-9]|#/, "mask");
+	var listRU = $.masksSort($.masksLoad("/phones-ru.json"), ['#'], /[0-9]|#/, "mask");
 	var optsRU = {
 	    inputmask: {
 	        definitions: {
