@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   def create
-    if item=@cart.cart_items.find_by(product_id: params[:product_id])
-      item.quantity+=params[:quantity]
+    if item=@cart.cart_items.find_by(product_id: params[:cart_item][:product_id])
+      item.quantity+=params[:cart_item][:quantity]
       item.save
       redirect_to  @cart
     else
