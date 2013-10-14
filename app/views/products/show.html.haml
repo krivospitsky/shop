@@ -30,10 +30,10 @@
             });
           });
       .col-sm-5.col-md-5.dl-horizontal
-        / =if @product.manufacturer
-        /   .vendor
-        /     %dt Производитель
-        /     %dd= @product.manufacturer.name
+         -if @product.manufacturer
+           .vendor
+             %dt Производитель
+             %dd= @product.manufacturer.name
         .sku
           %dt Модель
           %dd= @product.sku
