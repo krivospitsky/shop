@@ -62,9 +62,12 @@
                 .glyphicon.glyphicon-shopping-cart
                 Корзина
                 .badge= get_current_cart.cart_items.count.to_s
-          %form.navbar-form.navbar-left{role:"search"}
-            .form-group
+          %form.navbar-form.navbar-right{role:"search"}
+            .input-group
               %input.form-control{type:"text", placeholder:"Поиск"}
+              %span.input-group-btn.input-group-sm
+                %button.btn.btn-default.btn.xs
+                  %span.glyphicon.glyphicon-search
       .row
         .col-md-3.col-sm-3
           .well.sidebar-nav
