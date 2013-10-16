@@ -4,6 +4,7 @@ namespace :ulmart do
 		urls = {"http://www.ulmart.ru/catalog/DVR"=>'1',
 				"http://www.ulmart.ru/catalog/radar_detector"=>'3',
 				"http://www.ulmart.ru/catalog/gps_radio"=>'2',
+				"http://www.ulmart.ru/catalog/alarm"=>'5',
 				"http://www.ulmart.ru/catalog/92049"=>'4'}
 		urls.each_key do |url|
 			page=1

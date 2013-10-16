@@ -30,5 +30,6 @@ Shop::Application.configure do
   SHOP_NAME='CarGadget.ru'
   ADMIN_NAME = 'admin'
   ADMIN_PASSWORD = '201185'
+  PHONE='+7(920)618-02-01'
 
 end

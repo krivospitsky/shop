@@ -29,7 +29,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
   %body
     .container-fixed
-      %nav.navbar.navbar-default
+      %nav.navbar.navbar-default{role:'navigation'}
         .navbar-header
           %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse"}
             %span.sr-only Toggle navigation
@@ -38,8 +38,24 @@
             %span.icon-bar
           %a.navbar-brand{:href => "/"}
             CarGadget.ru
+        %ul.nav.navbar-nav
+          %li
+            %a{href: cart_path}
+              .glyphicon.glyphicon-shopping-cart
+              Корзина
+              .badge= get_current_cart.cart_items.count.to_s
         .collapse.navbar-collapse.navbar-ex1-collapse
+          %form.navbar-form.navbar-right{role:"search"}
+            .input-group
+              %input.form-control{type:"text", placeholder:"Поиск"}
+              %span.input-group-btn.input-group-sm
+                %button.btn.btn-default.btn.xs
+                  %span.glyphicon.glyphicon-search
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              =link_to "Оплата и доставка", article_path(1)
           %ul.nav.navbar-nav
+            =render '/categories/tree'
             / -%li.dropdown
             /   %a.dropdown-toggle{href:"#", 'data-toggle'=>"dropdown"}
             /     Статьи
@@ -49,31 +65,14 @@
             /     %li= link_to "Эрго-рюкзак против кенгуру", "/path3"
             /     %li= link_to "Выбрать слинг", "/path3"
 
-            %li= link_to "Оплата и доставка", article_path(1)
-            %li.dropdown
-              %a.dropdown-toggle{href:"#", 'data-toggle'=>"dropdown"}
-                Производители
-                <b class="caret"></b>
-              %ul.dropdown-menu
-                -Manufacturer.all(order:'name').each do |manufacturer|
-                  %li
-                    =link_to manufacturer.name, manufacturer_path(manufacturer.id)
-          %ul.nav.navbar-nav.pull-right
-            %li
-              %a{href: cart_path}
-                .glyphicon.glyphicon-shopping-cart
-                Корзина
-                .badge= get_current_cart.cart_items.count.to_s
-
-      %ul.nav.nav-pills.nav-justified
-        = render '/categories/tree'
-        %li
-          %form{role:"search"}
-            .input-group
-              %input.form-control{type:"text", placeholder:"Поиск"}
-              %span.input-group-btn.input-group-sm
-                %button.btn.btn-default.btn.xs
-                  %span.glyphicon.glyphicon-search
+            / %li.dropdown
+            /   %a.dropdown-toggle{href:"#", 'data-toggle'=>"dropdown"}
+            /     Производители
+            /     <b class="caret"></b>
+            /   %ul.dropdown-menu
+            /     -Manufacturer.all(order:'name').each do |manufacturer|
+            /       %li
+            /         =link_to manufacturer.name, manufacturer_path(manufacturer.id)
 
       = yield
 

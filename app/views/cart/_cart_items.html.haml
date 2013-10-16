@@ -1,25 +1,25 @@
--cart.cart_items.all.each do |item|
-  .row
-    = form_for item, method:'patch' do |f|
-      .col-md-2
-        =link_to product_path(item.product.id) do
-          =image_tag item.product.images.first.image.url(:thumb)
-      .col-md-2
-        =link_to item.product.name, product_path(item.product.id)
-      .col-md-2
-        %small
-          = number_to_currency(item.product.price, unit:"руб.", :delimiter => " ", :format => "%n %u", :precision => 0)
-      .col-md-2
-        .input-group.input-group-sm
-          =f.text_field :quantity, class:'form-control'
-          %span.input-group-btn
-            %button.btn.btn-xs{type:'submit'}
-              %span.glyphicon.glyphicon-refresh
-
-      .col-md-2
-        %small
-          = number_to_currency(item.product.price*item.quantity, unit:"руб.", :delimiter => " ", :format => "%n %u", :precision => 0)
-    .col-md-2
-      =button_to item, :method => :delete, class:'btn btn-danger btn-xs' do
-        %span.glyphicon.glyphicon-trash
-        Удалить
+%table.table
+  -cart.cart_items.all.each do |item|
+    %tr
+      = form_for item, method:'patch' do |f|
+        %td
+          =link_to product_path(item.product.id) do
+            =image_tag item.product.images.first.image.url(:thumb)
+        %td
+          =link_to item.product.name, product_path(item.product.id)
+        %td
+          %small
+            = number_to_currency(item.product.price, unit:"руб.", :delimiter => " ", :format => "%n %u", :precision => 0)
+        %td
+          .input-group.input-group-sm
+            =f.text_field :quantity, class:'form-control'
+            %span.input-group-btn
+              %button.btn.btn-xs{type:'submit'}
+                %span.glyphicon.glyphicon-refresh
+        %td
+          %small
+            = number_to_currency(item.product.price*item.quantity, unit:"руб.", :delimiter => " ", :format => "%n %u", :precision => 0)
+      %td
+        =button_to item, :method => :delete, class:'btn btn-danger btn-xs' do
+          %span.glyphicon.glyphicon-trash
+          Удалить
