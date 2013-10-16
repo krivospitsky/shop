@@ -62,21 +62,20 @@
                 .glyphicon.glyphicon-shopping-cart
                 Корзина
                 .badge= get_current_cart.cart_items.count.to_s
-          %form.navbar-form.navbar-right{role:"search"}
+
+      %ul.nav.nav-pills.nav-justified
+        = render '/categories/tree'
+        %li
+          %form{role:"search"}
             .input-group
               %input.form-control{type:"text", placeholder:"Поиск"}
               %span.input-group-btn.input-group-sm
                 %button.btn.btn-default.btn.xs
                   %span.glyphicon.glyphicon-search
-      .row
-        .col-md-3.col-sm-3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Категории
-              = render '/categories/tree'
-        .col-md-9.col-sm-9
-          //= bootstrap_flash
-          = yield
+
+      = yield
+
       %footer
-        .nav.navbar
-          %p &copy; Cargadget.ru 2013
+        .nav.navbar.navbar-default
+          .navbar-text.pull-right
+            &copy; Cargadget.ru 2013
