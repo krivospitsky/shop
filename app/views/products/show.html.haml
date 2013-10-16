@@ -60,9 +60,12 @@
               %button.btn.btn-sm.btn-primary{type:'submit'}
                 %span.glyphicon.glyphicon-shopping-cart
                 Купить
+        <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+        .yashare-auto-init
     -if @product.images.count >5
       .row
         .col-sm-2.col-sm-offset4.col-md-2.col-md-offset4.next.icon-angle-down
+
     .row
       .col-md-6
         #vk_comments
@@ -75,7 +78,5 @@
         .description{itemprop:"description"}
           =raw @product.description
 
-    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-    <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,lj,gplus"></div>
 
 = link_to 'Edit', edit_product_path(@product), class:"btn"

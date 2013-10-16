@@ -1,6 +1,8 @@
 Shop::Application.routes.draw do
 
 
+  resources :orders
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles
 
