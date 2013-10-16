@@ -46,7 +46,7 @@
               Корзина
               .badge= get_current_cart.cart_items.count.to_s
         .collapse.navbar-collapse.navbar-ex1-collapse
-          %form.navbar-form.navbar-right{role:"search"}
+          %form.navbar-form.navbar-right#search_form{role:"search"}
             .input-group
               %input.form-control{type:"text", placeholder:"Поиск"}
               %span.input-group-btn.input-group-sm
