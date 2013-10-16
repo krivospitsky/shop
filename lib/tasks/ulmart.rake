@@ -15,7 +15,7 @@ namespace :ulmart do
 					name=prod_item.content
 					name.gsub!('антирадар', 'Радар-детектор')
 					puts "#{name}"
-					next if not (name.index('DOD') or name.index('КАРКАМ') or name.index('Sho-Me')or name.index('Crunch')or name.index('Whistler')or name.index('Garmin')or name.index('Navitel')or name.index('парктроник'))
+					next if not (name.index('DOD') or name.index('КАРКАМ') or name.index('Sho-Me')or name.index('Crunch')or name.index('Whistler')or name.index('Garmin')or name.index('Navitel')or name.index('парктроник')or urls[url]==5)
 					prod = Nokogiri::HTML(open("http://www.ulmart.ru#{prod_url}"))
 					sku=prod.xpath('//span[@class="b-art"]/span').first.content
 					descr=prod.xpath('//section[@id="properties_full"]').to_html
