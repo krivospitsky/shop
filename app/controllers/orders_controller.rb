@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        UserMailer.new_order(@order).deliver
         UserMailer.order_confirmation(@order).deliver
         session[:cart_id]=nil
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

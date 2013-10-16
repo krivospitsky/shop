@@ -4,6 +4,9 @@ class UserMailer < ActionMailer::Base
   def order_confirmation(order)
     @order=order
     mail(to:order.email, subject:"Подтверждение заказа", from:"order@cargadget.ru")
+  end
+  def new_order(order)
+    @order=order
     mail(to:"order@cargadget.ru", subject:"Новый заказ", from:order.email)
   end
 end
