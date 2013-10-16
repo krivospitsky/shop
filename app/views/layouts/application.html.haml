@@ -57,6 +57,7 @@
                 -Manufacturer.all(order:'name').each do |manufacturer|
                   %li
                     =link_to manufacturer.name, manufacturer_path(manufacturer.id)
+          %ul.nav.navbar-nav.pull-right
             %li
               %a{href: cart_path}
                 .glyphicon.glyphicon-shopping-cart
