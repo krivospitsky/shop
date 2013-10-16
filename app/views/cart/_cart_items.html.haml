@@ -11,7 +11,7 @@
           %small
             = number_to_currency(item.product.price, unit:"руб.", :delimiter => " ", :format => "%n %u", :precision => 0)
         %td
-          .input-group.input-group-sm
+          .input-group.input-group-sm#quantity
             =f.text_field :quantity, class:'form-control'
             %span.input-group-btn
               %button.btn.btn-xs{type:'submit'}
