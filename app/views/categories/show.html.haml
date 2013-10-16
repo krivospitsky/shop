@@ -1,7 +1,8 @@
 -content_for :title, "#{@category.name} - CarGadget.ru"
 %h1= @category.name
 .row
-	%img.col-md-3{src:@category.image.url(:medium)}
+	-if @category.image
+		%img.col-md-3{src:@category.image.url(:medium)}
 	.col-md-9= @category.description
 
 

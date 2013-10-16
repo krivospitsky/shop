@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     @cart = Cart.find_or_create_by_id(session[:cart_id])
     session[:cart_id]=@cart.id
   end
+
+  def check_admin
+    redirect_to root_path unless session[:is_admin?]
+  end
 end

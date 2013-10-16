@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_filter :check_admin, except: [:show, :index]
   # GET /carts
   # GET /carts.json
   def index
@@ -12,10 +13,5 @@ class CartController < ApplicationController
 
   def all
     @carts = Cart.all
-  end
-
-  def delete
-    @cart.cart_items.first(:conditions => [ "product_id = ?", params[:product_id]]).delete
-    redirect_to cart_path
   end
 end
