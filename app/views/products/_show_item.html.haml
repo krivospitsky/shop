@@ -10,7 +10,7 @@
         = f.hidden_field :product_id
         = f.hidden_field :quantity
         .btn-group
-          %button.btn.btn-primary.btn-sm{type:'button', href:product_path(product.id)}
+          %a.btn.btn-primary.btn-sm{type:'button', href:product_path(product.id)}
             Подробнее
           %button.btn.btn-success.btn-sm{type:'submit'}
             %span.glyphicon.glyphicon-shopping-cart

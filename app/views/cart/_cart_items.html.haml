@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-condensed
   -cart.cart_items.all.each do |item|
     %tr
       = form_for item, method:'patch' do |f|
