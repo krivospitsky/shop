@@ -58,3 +58,5 @@ gem 'jquery-colorbox-rails'
 
 gem 'nokogiri'
 gem "ckeditor"
+
+gem 'activeadmin', github: 'gregbell/active_admin'

@@ -1,6 +1,8 @@
 Shop::Application.routes.draw do
 
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :orders
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -10,6 +12,7 @@ Shop::Application.routes.draw do
 
   resources :categories
   resources :products
+  resources :main
 
   resources :cart_items
   get 'login' => 'auth#index'
@@ -21,7 +24,7 @@ Shop::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'articles#show', {id:2}
+  root 'main#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
