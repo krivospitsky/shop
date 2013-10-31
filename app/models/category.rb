@@ -4,6 +4,11 @@ class Category < ActiveRecord::Base
     	:foreign_key => "parent_id"
 	belongs_to :parent, :class_name => "Category"
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" } #, :default_url => "/images/:style/missing.png"
+
+  extend FriendlyId
+  friendly_id :seo_name
+
+
   attr_accessor :delete_image
   before_validation { self.image.clear if self.delete_image == '1' }
 end

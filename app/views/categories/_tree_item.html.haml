@@ -1,5 +1,5 @@
 %li
-	= link_to tree_item.name, category_path(tree_item.id)
+	= link_to tree_item.name, category_path(tree_item)
 	- tmp=Category.where({:parent_id=>tree_item.id})
 	- if tmp.first
 		%ul.nav.nav-list

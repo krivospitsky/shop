@@ -61,3 +61,4 @@ gem "ckeditor"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'airbrake'
+gem 'friendly_id', '~> 5.0.0'
