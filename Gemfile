@@ -60,3 +60,4 @@ gem 'nokogiri'
 gem "ckeditor"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'airbrake'
