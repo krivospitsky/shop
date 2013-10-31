@@ -18,6 +18,9 @@ ActiveAdmin.register Category do
     def permitted_params
       params.permit(:category => [:name, :description, :hidden, :sort, :seo_name, :image, :parent_id])
     end
+    def find_resource
+         scoped_collection.friendly.find(params[:id])
+    end
   end
 
 end
