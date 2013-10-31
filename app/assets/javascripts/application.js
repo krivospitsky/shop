@@ -10,11 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require ckeditor/override
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require jquery.colorbox
 //= require jcarousellite_1.0.1.pack
+//= require twitter/bootstrap
 //= require ckeditor/init
 //= require_tree .
 
