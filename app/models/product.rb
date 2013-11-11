@@ -4,7 +4,11 @@ class Product < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :manufacturer
 	has_many :options, :dependent => :destroy
-	def availability
+
+  extend FriendlyId
+  friendly_id :seo_name
+
+  def availability
 	  return 'В наличии' if count>0
 	  return 'Под заказ' if count==0
 	end

@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  before_filter :check_admin, except: [:show, :index]
+
   # GET /carts
   # GET /carts.json
   def index
