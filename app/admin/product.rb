@@ -29,6 +29,6 @@ ActiveAdmin.register Product do
       f.input :manufacturer, as: :select
       f.input :seo_name
     end
-    f.buttons
+    f.actions
   end
 end

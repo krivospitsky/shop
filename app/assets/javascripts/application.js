@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.colorbox
+//= require fancybox
 //= require jcarousellite_1.0.1.pack
 //= require twitter/bootstrap
 //= require ckeditor/init

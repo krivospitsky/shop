@@ -12,7 +12,7 @@ ActiveAdmin.register Category do
       f.input :seo_name
       f.input :parent, as: :select
     end
-    f.buttons
+    f.actions
   end
   controller do
     def permitted_params

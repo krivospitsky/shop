@@ -4,6 +4,6 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :text, :as => :ckeditor
     end
-    f.buttons
+    f.actions
   end
 end

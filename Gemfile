@@ -54,7 +54,7 @@ group :development do
   gem "erb2haml"
 end
 
-gem 'jquery-colorbox-rails'
+gem 'fancybox2-rails', '~> 0.2.4'
 
 gem 'nokogiri'
 gem "ckeditor"
