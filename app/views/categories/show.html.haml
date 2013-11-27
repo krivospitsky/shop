@@ -13,5 +13,5 @@
 -else
 	.row
 		- @category.products.where(hidden:false).each do |product|
-			=render "/products/show_item", :product=>product, :cart_item=>@cart.cart_items.new(product_id: product.id, quantity:1)
+			=render "/products/show_item", :product=>product, :cart_item=>@current_cart.cart_items.new(product_id: product.id, quantity:1)
 

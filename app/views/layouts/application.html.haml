@@ -44,13 +44,13 @@
             %a{href: cart_path}
               .glyphicon.glyphicon-shopping-cart
               Корзина
-              .badge= get_current_cart.cart_items.count.to_s
+              .badge= @current_cart.cart_items.count.to_s
         .collapse.navbar-collapse.navbar-ex1-collapse
-          %form.navbar-form.navbar-right#search_form{role:"search"}
+          =form_tag search_path, method: 'get', class: 'navbar-form navbar-right', id: 'search_form', role: 'search' do
             .input-group
-              %input.form-control{type:"text", placeholder:"Поиск"}
+              %input.form-control{type:"text", placeholder:"Поиск", name: "text"}
               %span.input-group-btn.input-group-sm
-                %button.btn.btn-default.btn.xs
+                %button.btn.btn-default.btn.xs{type: 'submit'}
                   %span.glyphicon.glyphicon-search
           %ul.nav.navbar-nav.navbar-right
             %li

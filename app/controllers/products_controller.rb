@@ -2,12 +2,16 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
+def search
+  @text=params[:text]
+  @products = Product.search(params[:text])
+end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @title=@product.name
-    @cart_item = @cart.cart_items.new(product_id: @product.id, quantity:1)
+    @cart_item = @current_cart.cart_items.new(product_id: @product.id, quantity:1)
   end
 
 

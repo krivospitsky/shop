@@ -1,0 +1,14 @@
+= semantic_form_for @order do |a|
+  = a.inputs "Заказ" do
+    = a.input :name
+  = a.inputs "Товары" do
+    %table
+      %tr
+        %th Товар
+        %th Количество
+      = a.semantic_fields_for :cart_items do |b|
+        %tr
+          %td= b.input :product, label: false
+          %td= b.input :quantity, label: false
+  = a.actions do
+    = a.action :submit

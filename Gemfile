@@ -59,10 +59,12 @@ gem 'fancybox2-rails', '~> 0.2.4'
 gem 'nokogiri'
 gem "ckeditor"
 
+#gem 'formtastic', github: 'krivospitsky/formtastic'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'airbrake'
 gem 'friendly_id', '~> 5.0.0'
 gem 'state_machine'
 gem 'active_admin-state_machine', :github => 'macfanatic/active_admin-state_machine'
-gem 'acts_as_list'
-gem 'activeadmin-sortable'
+#gem 'thin'
+gem "cocoon"
+gem "activeadmin-paperclip", github: 'struck/activeadmin-paperclip'

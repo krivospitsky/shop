@@ -2,7 +2,9 @@ ActiveAdmin.register Product do
   index do
     column :id
     column :image do |product|
-      image_tag(product.images[0].image.url(:thumb))
+      if product.images[0]
+        image_tag(product.images[0].image.url(:thumb))
+      end
     end
 
     column :name do |product|
@@ -28,7 +30,17 @@ ActiveAdmin.register Product do
       f.input :sort
       f.input :manufacturer, as: :select
       f.input :seo_name
+      f.has_many :images, allow_destroy: true, new_record: true do |cf|
+        cf.input :id, as: :hidden
+        cf.input :image
+      end
+
     end
     f.actions
+  end
+  controller do
+    def permitted_params
+      params.permit product: [:name, images_attributes: [:image, :id, :_delete]]
+    end
   end
 end

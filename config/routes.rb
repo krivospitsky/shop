@@ -12,6 +12,7 @@ Shop::Application.routes.draw do
 
   resources :categories
   resources :products
+  get 'search' => 'products#search'
   resources :main
 
   resources :cart_items

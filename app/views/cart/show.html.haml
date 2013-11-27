@@ -3,7 +3,7 @@
 	%h1 Корзина
 
 /%table.table.table-striped.table-responsive
-=render 'cart_items', cart: @cart
+=render 'cart_items', cart: @current_cart
 
 %hr
 =link_to 'Оформить заказ', "#", class:'btn btn-primary', 'data-toggle'=>"modal", 'data-target'=>"#order-info"
